@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="refresh" content="{{ REFRESH }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static', filename='showDetails.js') }}"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Inventory</title>
+</head>
+<body>
+    <header>
+        <h1>SDPTeam Inventory</h1>
+    </header>
+{% block body %}
+{% endblock %}
+</body>

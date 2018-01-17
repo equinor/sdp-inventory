@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if hosts %}
+      <table id="hostTable">
+        <tr class="hostTableHeader">
+          <td>Puppet Certname</td>
+          <td>Statoil Hostname</td>
+          <td>Project</td>
+          <td>Datacenter</td>
+          <td>Environment</td>
+          <td>Uptime</td>
+        </tr>
+        {% for host in hosts.keys() %}
+        <tr class="hostTableItem">
+          <td class="hostTableItemCertname">{{ hosts[host]['certname'] }}</td>
+          <td class="hostTableItemFqdn">{{ hosts[host]['fqdn'] }}</td>
+          <td class="hostTableItemProject">{{ hosts[host]['project'] }}</td>
+          <td class="hostTableItemDatacenter">{{ hosts[host]['datacenter'] }}</td>
+          <td class="hostTableItemEnvironment">{{ hosts[host]['environment'] }}</td>
+          <td class="hostTableItemUptime">{{ hosts[host]['uptime']}}</td>
+        </tr>
+        <tr class="hostTableItemDetails">
+          <td colspan="999">
+              <h3>Description:</h3><p>{{ hosts[host]['host_description'] }}</p>
+              <h3>Role:</h3><p>{{ hosts[host]['role_description'] }}</p>
+              {% if hosts[host]['docker_info'] %}
+              <h3>Docker:</h3>
+              <table id="containerTable">
+                  <tr id="containerTableHeader">
+                      <td>Name</td>
+                      <td>Image</td>
+                  </tr>
+                  {% for item in hosts[host]['docker_info'].keys() %}
+                  <tr>
+                    <td>{{ hosts[host]['docker_info'][item]['container_name'] }}</td>
+                    <td>{{ hosts[host]['docker_info'][item]['image_name'] }}</td>
+                  </tr>
+                {% endfor %}
+            </table>
+              {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+        <h1>ERMYYYYGEEERD, NO HOSTS!!</h1>
+    {% endif %}
+    </section>
+{% endblock %}

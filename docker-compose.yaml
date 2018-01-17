@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+    sdp_inventory:
+        restart: unless-stopped
+        build: .
+        container_name: sdp-inventory
+        image: sdp-inventory
+        volumes:
+          - ./src:/app
+        ports:
+          - 5000:5000
+        environment:
+            REFRESH: 86400
+            FLASK_DEBUG: 0
+            PUPPETDB_API: "http://puppet.sdp.statoil.no:8080"
