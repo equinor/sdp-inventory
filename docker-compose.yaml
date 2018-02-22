@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-    sdp_inventory:
+    inventory.sdp.statoil.no:
         restart: unless-stopped
         build: .
-        container_name: sdp-inventory
-        image: sdp-inventory
+        container_name: inventory.sdp.statoil.no
+        image: sdp/inventory
         volumes:
           - ./src:/app
         ports:
