@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
     {% if hosts %}
+      <section id="tableNav">
+        <p class="button" id="expandAll">expand all</p>
+        <p class="button" id="collapseAll">collapse all</p>
+      </section>
       <table id="hostTable">
         <tr class="hostTableHeader">
           <td>Puppet Certname</td>

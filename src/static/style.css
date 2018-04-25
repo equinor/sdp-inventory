@@ -63,9 +63,24 @@ header {
     text-align: left;
 }
 #about p { margin: 1em 0; }
+#tableNav {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+.button {
+    padding: 0.25em;
+    border-radius: 5px;
+    background: lightgray;
+    color: #3a3a3a;
+    border: solid 1px #3a3a3a;
+    margin: 0 0.5em;
+    cursor: pointer;
+}
 #hostTable {
     width: 90%;
-    margin: 2em auto 2em auto;
+    margin: 0.5em auto 2em auto;
     overflow: hidden;
     border-collapse: collapse;
     border-spacing: 0;

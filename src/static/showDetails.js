@@ -5,4 +5,10 @@ $(document).ready(function() {
     $(".hostTableItemDetails").click(function() {
         $(this).hide();
     });
+    $("#expandAll").click(function() {
+        $(".hostTableItemDetails").show();
+    });
+    $("#collapseAll").click(function() {
+        $(".hostTableItemDetails").hide();
+    });
 });
